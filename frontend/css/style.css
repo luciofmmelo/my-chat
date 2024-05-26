@@ -149,6 +149,8 @@ body {
 }
 
 .message {
+    display: flex;
+    flex-direction: column;
     max-width: 400px;
     padding: 16px 20px;
 }
@@ -162,8 +164,6 @@ body {
 }
 
 .message-other {
-    display: flex;
-    flex-direction: column;
     background-color: rgb(227, 227, 227);
     color: black;
     border-radius: 0 12px 12px 12px;
@@ -171,10 +171,25 @@ body {
 }
 
 .other-name {
-    color: rgb(186, 85, 44);
     font-size: 14px;
     font-weight: 500;
     margin-bottom: 8px;
+}
+
+.message-time {
+    margin-top: 5px;
+    font-size: 8px;
+}
+
+.message-time-self {
+    color: rgb(180, 180, 180);
+    align-self: start;
+}
+
+.message-time-other {
+    color: #3d3d3d;
+    align-self: end;
+    text-align: end;
 }
 
 .chat-form {
