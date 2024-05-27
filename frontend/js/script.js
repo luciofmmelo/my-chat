@@ -69,14 +69,6 @@ const toggleClasse = () => {
 
 // CONTROLLER FUNCTIONS:
 
-const processMessage = ({ data }) => {
-    const { userId, userName, userColor, content, messageTime } = JSON.parse(data);
-
-    const element = createSelfMessage(userId, userName, userColor, content, messageTime);
-
-    chatMessages.appendChild(element);
-}
-
 const handleLogin = (event) => {
     event.preventDefault();
 
@@ -91,22 +83,68 @@ const handleLogin = (event) => {
     chatForm.style.display = "flex";
 
     webSocket = new WebSocket('ws://localhost:8080');
+    
+    webSocket.onopen = () => {
+        webSocket.send(JSON.stringify({
+            type: 'login',
+            userName: user.name
+        }));
+    };
+
     webSocket.onmessage = processMessage;
 }
+
+const processMessage = ({ data }) => {
+    const parsedData = JSON.parse(data);
+    let element;
+
+    if (parsedData.type === 'welcome') {
+        element = getWelcomeMessage(parsedData.message);
+    } else if (parsedData.type === 'newUser') {
+        element = getNewUserMessage(parsedData.message);
+    } else if (parsedData.type === 'message') {
+        element = createSelfMessage(parsedData.userId, parsedData.userName, parsedData.userColor, parsedData.content, parsedData.messageTime);
+    }
+
+    chatMessages.appendChild(element);
+}
+
+const sendMessageNewUser = () => {
+    const newUserMessage = {
+        userName: user.name,
+        messageTime: getCurrentTime()
+    }
+
+    webSocket.send(JSON.stringify(newUserMessage));
+}
+
+const getWelcomeMessage = (message) => {
+    const welcomeMessage = document.createElement('div');
+    welcomeMessage.classList.add('new-user-message');
+    welcomeMessage.textContent = message;
+    return welcomeMessage;
+};
+
+const getNewUserMessage = (message) => {
+    const newUserMessage = document.createElement('div');
+    newUserMessage.classList.add('new-user-message');
+    newUserMessage.textContent = message;
+    return newUserMessage;
+};
 
 const sendMessage = (event) => {
     event.preventDefault();
 
     const message = {
+        type: 'message',
         userId: user.id,
         userName: user.name,
         userColor: user.color,
         content: chatInput.value,
         messageTime: getCurrentTime()
-    }
+    };
 
     webSocket.send(JSON.stringify(message));
-
     chatInput.value = '';
 }
 
@@ -134,7 +172,6 @@ const createSelfMessage = (userId, userName, userColor, content, messageTime) =>
     }
 
     selfMessage.innerHTML += content;
-    console.log(messageTime)
     otherMessageTime.innerHTML = messageTime;
     selfMessage.appendChild(otherMessageTime);
 
