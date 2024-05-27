@@ -18,81 +18,100 @@
 
     <section class="container">
         
-        <section    class="login">
-                    <h2>Login</h2>
-                    <form class="login-form">
-                        <input  type="text"
-                                class="login-input"
-                                placeholder="Seu nome"
-                                required="required">
-                        <button type="submit"
-                                class="login-btn">
-                                Entrar
-                        </button>
-                    </form>
+        <section class="login">
+                 <h2>Login</h2>
+                 <form class="login-form">
+                       <input type="text"
+                              class="login-input"
+                              placeholder="Your name"
+                              required="required">
+                       <input type="password"
+                              class="login-input"
+                              placeholder="Your e-mail">
+                       <button type="submit"
+                               class="login-btn">
+                               Enter
+                       </button>
+                       <bar class="sign-bar"> 
+                            <button type="submit"
+                                    class="sign-btn">
+                                    Sign up
+                            </button>
+                       </bar>
+                 </form>
         </section>
         
-        <section    class="chat">
-                    <header class="chat-header">
-                            <div    class="profile">
-                                    <img src="./images/profile.jpg" class="img-perfil">
-                                    <span class="name-perfil"></span>        
-                            </div>
-                            <button type="button"
-                                    class="chat-btn"
-                                    id="emoji-btn">
-                                    <span   class="material-symbols-outlined">
-                                            search
-                                    </span>
-                            </button>
-                    </header>
-
-                    <section    class="chat-messages">
-                                <!-- <div class="message message-self">
-                                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam ut illo doloremque! Tenetur molestias quia nulla cupiditate! Amet, magnam, culpa rem harum perspiciatis architecto, laudantium mollitia odio praesentium possimus autem!
-                                </div>
-                                <div class="message message-other">
-                                    <span class="other-name">Vilma</span>
-                                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minima ipsa eveniet fugiat porro tempore, qui repellendus amet magni, beatae perferendis explicabo molestias praesentium vitae ipsam repellat. Repellendus a iure dignissimos.
-                                </div> -->
-                    </section>
-
-                    <form   class="chat-form" oninput="toggleClasse()">
-                            <button type="button"
-                                    class="chat-btn"
-                                    id="emoji-btn">
-                                    <span   class="material-symbols-outlined">
-                                            sentiment_satisfied
-                                    </span>
-                            </button>
-                            <button type="button"
-                                    class="chat-btn"
-                                    id="mic-btn">
-                                    <span   class="material-symbols-outlined">
-                                            attach_file
-                                    </span>
-                            </button>
-                            <input  type="text"
-                                    class="chat-input"
-                                    id="chat-input"
-                                    autocomplete="off"
-                                    placeholder="Mensagem">
-                            <button type="submit"
-                                    class="chat-btn"
-                                    id="send-btn">
-                                    <span   class="material-symbols-outlined"
-                                            id="mic-icon">
-                                            mic
-                                    </span>
-                                    <span   class="material-symbols-outlined ocultar"
-                                            id="send-icon">
-                                            send
-                                    </span>
-                            </button>
-                    </form>
+        <section class="login ocultar">
+                 <h2>Sign up</h2>
+                 <form class="login-form">
+                       <input type="text"
+                              class="login-input"
+                              placeholder="Your name"
+                              required="required">
+                       <input type="password"
+                              class="login-input"
+                              placeholder="Your e-mail"
+                              required="required">
+                       <button type="submit"
+                               class="login-btn">
+                               Enter
+                       </button>
+                 </form>
         </section>
 
-     </section>
+        <section class="chat">
+                 <header class="chat-header">
+                         <div class="profile">
+                              <img src="./images/profile.jpg" class="img-perfil">
+                              <span class="name-perfil"></span>        
+                         </div>
+                         <button type="button"
+                                 class="chat-btn"
+                                 id="emoji-btn">
+                                 <span class="material-symbols-outlined">
+                                       search
+                                 </span>
+                         </button>
+                 </header>
+
+                 <section class="chat-messages"></section>
+
+                 <form class="chat-form" oninput="toggleClasse()">
+                       <button type="button"
+                               class="chat-btn"
+                               id="emoji-btn">
+                               <span class="material-symbols-outlined">
+                                     sentiment_satisfied
+                               </span>
+                       </button>
+                       <button type="button"
+                               class="chat-btn"
+                               id="mic-btn">
+                               <span class="material-symbols-outlined">
+                                     attach_file
+                               </span>
+                       </button>
+                       <input type="text"
+                              class="chat-input"
+                              id="chat-input"
+                              autocomplete="off"
+                              placeholder="Mensagem">
+                       <button type="submit"
+                               class="chat-btn"
+                               id="send-btn">
+                               <span class="material-symbols-outlined"
+                                     id="mic-icon">
+                                     mic
+                               </span>
+                               <span class="material-symbols-outlined ocultar"
+                                     id="send-icon">
+                                     send
+                               </span>
+                       </button>
+                 </form>
+        </section>
+
+    </section>
     
 </body>
 </html>

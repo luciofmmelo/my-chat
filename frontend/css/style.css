@@ -29,12 +29,13 @@ body {
     height: 100%;
 }
 
-/* MENU DE LOGIN */
+
+/* LOGIN AND SIGN UP */
 
 .login {
     display: flex;
     flex-direction: column;
-    margin-top: 30%;
+    margin-top: 30vh;
     width: 100%; 
     max-width: 330px;
     border-radius: 8px;
@@ -86,6 +87,7 @@ body {
     transition: 300ms;
     background-color: rgb(177, 202, 181);
     color: #040404;
+    cursor: pointer;
 }
 
 .login-form > .login-btn:hover {
@@ -94,7 +96,29 @@ body {
     color: white;
 }
 
-/* HEADER */
+.sign-bar {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.sign-btn {
+    color: rgb(152, 200, 160);
+    padding: 6px;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.sign-btn:hover {
+    border-radius: 8px;
+    color: rgb(43, 53, 45);
+    background-color: rgb(154, 172, 156);
+}
+
+
+/* HEADER ELEMENTS: */
 
 .chat-header {
     display: none;
@@ -128,7 +152,8 @@ body {
     font-size: 20px;
 }
 
-/* CONTAINER DO CHAT */
+
+/* CHAT CONTAINER: */
 
 .chat {
     width: 100%;
@@ -139,6 +164,7 @@ body {
 }
 
 .chat-messages {
+    overflow-x: scroll;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -192,6 +218,21 @@ body {
     text-align: end;
 }
 
+.new-user-message {
+    align-self: center;
+    text-align: center;
+    border-radius: 8px;
+    padding: 3px;
+    height: 20px;
+    width: 90%;
+    background-color: rgb(79, 75, 66);
+    color: lightgray;
+    font-size: 10px;
+}
+
+
+/* FOOTER ELEMENTS: */
+
 .chat-form {
     display: none;
     justify-content: baseline;
@@ -233,6 +274,7 @@ body {
     background-color: #3d3d3d;
     border: none;
     padding: 8px 8px 0 8px;
+    cursor: pointer;
 }
 
 .chat-btn:hover {
