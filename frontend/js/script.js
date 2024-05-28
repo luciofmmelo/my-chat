@@ -94,6 +94,17 @@ const handleLogin = (event) => {
     webSocket.onmessage = processMessage;
 }
 
+const changePhoto = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            document.getElementById('uploadedImage').src = e.target.result;
+        }
+        reader.readAsDataURL(file);
+    }
+};
+
 const processMessage = ({ data }) => {
     const parsedData = JSON.parse(data);
     let element;
@@ -181,5 +192,21 @@ const createSelfMessage = (userId, userName, userColor, content, messageTime) =>
 
 // EVENT LISTENERS:
 
+// fotoPerfil.addEventListener('change', changePhoto);
 loginForm.addEventListener('submit', handleLogin);
 chatForm.addEventListener('submit', sendMessage);
+document.getElementById('image').addEventListener('click', function() {
+    document.getElementById('image-input').click();
+});
+
+document.getElementById('image-input').addEventListener('change', function(event) {
+    const file = event.target.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            document.getElementById('upload-image').style.display = "flex";
+            document.getElementById('upload-image').src = e.target.result;
+        }
+        reader.readAsDataURL(file);
+    }
+});

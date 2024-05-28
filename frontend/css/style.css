@@ -142,10 +142,34 @@ body {
     column-gap: 20px;
 }
 
-.img-perfil {
-    border-radius: 50%;
+.photo-perfil {
     width: 40px;
     height: 40px;
+    display: none;
+}
+
+.image-container {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('../images/user.png');
+    background-position: center;
+    background-size: contain;
+    overflow: hidden;
+    border: solid 1px white;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.image-container img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+#image-input {
+    display: none;
 }
 
 .name-perfil {
